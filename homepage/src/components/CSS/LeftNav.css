@@ -1,0 +1,67 @@
+.leftNav {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  width: 80px;
+  height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  gap: 16px;
+  background: rgba(13, 33, 40, 0.92);
+  border-right: 1px solid rgba(7, 157, 217, 0.2);
+  z-index: 15;
+  overflow-y: auto;
+}
+
+.leftNav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(7, 157, 217, 0.1);
+  border: 1px solid rgba(7, 157, 217, 0.18);
+  text-decoration: none;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.leftNav__item:hover {
+  background: rgba(7, 157, 217, 0.2);
+  border-color: rgba(7, 157, 217, 0.35);
+  transform: scale(1.08);
+}
+
+.leftNav__icon {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .leftNav {
+    display: none;
+  }
+}
+
+/* Scrollbar styling */
+.leftNav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.leftNav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.leftNav::-webkit-scrollbar-thumb {
+  background: rgba(7, 157, 217, 0.3);
+  border-radius: 2px;
+}
+
+.leftNav::-webkit-scrollbar-thumb:hover {
+  background: rgba(7, 157, 217, 0.5);
+}

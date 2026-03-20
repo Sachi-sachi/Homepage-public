@@ -1,0 +1,291 @@
+.appHeader {
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  height: 72px;
+  background: rgba(13, 33, 40, 0.95);
+  border-bottom: 1px solid rgba(7, 157, 217, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  gap: 20px;
+  justify-content: flex-start;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.appHeader__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.appHeader__logo {
+  display: flex;
+  align-items: center;
+}
+
+.appHeader__logo img {
+  height: 40px;      /* ✅ main control */
+  width: auto;       /* keeps aspect ratio */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.appHeader__brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.appHeader__brandName {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.appHeader__brandSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.3px;
+}
+
+.appHeader__nav {
+  display: flex;
+  gap: 16px;
+}
+
+.appHeader__link {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.appHeader__link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.appHeader__link--active {
+  color: var(--accent2);
+  background: rgba(7, 157, 217, 0.24);
+}
+
+.appHeader__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.appHeader__menuButton {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(7, 157, 217, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  padding: 10px;
+  place-items: center;
+  display: grid;
+}
+.appHeader__menuButton--dots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+}
+.appHeader__menuDot {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.appHeader__menuButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.appHeader__menuBar {
+  width: 20px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+}
+
+.iconButton {
+  background: rgba(7, 157, 217, 0.08);
+  border: none;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.iconButton:hover {
+  background: rgba(7, 157, 217, 0.18);
+}
+
+.followStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+}
+
+.followStatus__star {
+  font-size: 14px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, #d5d0d0 0%, #ffffff 100%);
+  color: rgba(11, 11, 13, 0.9);
+  font-weight: 700;
+  font-size: 14px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.avatar:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(13, 33, 40, 0.98);
+  border: 1px solid rgba(7, 157, 217, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  min-width: 180px;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown__item {
+  display: block;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown__item:hover {
+  background: rgba(7, 157, 217, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(7, 157, 217, 0.18);
+  background: rgba(7, 157, 217, 0.08);
+}
+
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d5d0d0 0%, #ffffff 100%);
+  color: rgba(11, 11, 13, 0.9);
+  font-weight: 700;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.profile-name {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-email {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown__menu--profile {
+  min-width: 220px;
+}
+
+.dropdown__item--logout {
+  color: rgba(255, 100, 100, 0.85);
+  border-top: 1px solid rgba(7, 157, 217, 0.18);
+}
+
+.dropdown__item--logout:hover {
+  background: rgba(255, 100, 100, 0.15);
+  color: rgba(255, 100, 100, 0.95);
+}
+
+@media (max-width: 1024px) {
+  .appHeader {
+    padding: 0 16px;
+  }
+
+
+  .appHeader__menuButton {
+    display: grid;
+  }
+}

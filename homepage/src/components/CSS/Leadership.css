@@ -1,0 +1,119 @@
+.leadership {
+  padding: 60px 28px;
+  background: rgba(13, 33, 40, 0.65);
+  border-top: 1px solid rgba(7, 157, 217, 0.18);
+}
+
+.leadership__container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.leadership__title {
+  margin: 0 0 42px 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.6px;
+}
+
+.leadership__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.leadership__card {
+  background: rgba(7, 157, 217, 0.08);
+  border: 1px solid rgba(7, 157, 217, 0.18);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 280ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leadership__card:hover {
+  background: rgba(7, 157, 217, 0.14);
+  border-color: rgba(7, 157, 217, 0.32);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(7, 157, 217, 0.15);
+}
+
+.leadership__imageBox {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(7, 157, 217, 0.12);
+  border: 1px solid rgba(7, 157, 217, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.leadership__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leadership__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(7, 157, 217, 0.18), rgba(86, 186, 190, 0.12));
+}
+
+.leadership__placeholderIcon {
+  font-size: 32px;
+  opacity: 0.5;
+}
+
+.leadership__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leadership__name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.2px;
+}
+
+.leadership__jobTitle {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.leadership__description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .leadership {
+    padding: 40px 20px;
+  }
+
+  .leadership__title {
+    font-size: 32px;
+    margin-bottom: 26px;
+  }
+
+  .leadership__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}

@@ -1,0 +1,50 @@
+.platforms {
+  padding: 60px 28px;
+  background: rgba(13, 33, 40, 0.75);
+  border-top: 1px solid rgba(7, 157, 217, 0.18);
+}
+
+.platforms__container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.platforms__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.platforms__card {
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(7, 157, 217, 0.1);
+  border: 1px solid rgba(7, 157, 217, 0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.platforms__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(7, 157, 217, 0.16);
+}
+
+.platforms__cardTitle {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platforms__cardIcon {
+  font-size: 20px;
+}
+
+.platforms__cardText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+}

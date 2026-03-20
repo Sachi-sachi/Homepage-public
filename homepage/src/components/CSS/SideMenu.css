@@ -1,0 +1,133 @@
+.sideMenu {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.sideMenu__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 5, 12, 0.75);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.sideMenu--open .sideMenu__backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sideMenu__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(320px, 85vw);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  gap: 24px;
+  background: rgba(10, 12, 20, 0.9);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  transform: translateX(-110%);
+  transition: transform 240ms ease;
+  pointer-events: auto;
+}
+
+.sideMenu--open .sideMenu__panel {
+  transform: translateX(0);
+}
+
+.sideMenu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sideMenu__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sideMenu__brandLogo {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ff7a00 0%, #ffb84d 100%);
+  border-radius: 12px;
+  color: rgba(11, 11, 13, 0.9);
+}
+
+.sideMenu__brandText {
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  font-size: 18px;
+}
+
+.sideMenu__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.sideMenu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sideMenu__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.sideMenu__icon {
+  font-size: 18px;
+  min-width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideMenu__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(2px);
+}
+
+.sideMenu__link--active {
+  background: rgba(255, 122, 0, 0.18);
+  color: #ffb84d;
+}
+
+.sideMenu__footer {
+  margin-top: auto;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .sideMenu {
+    display: none;
+  }
+}

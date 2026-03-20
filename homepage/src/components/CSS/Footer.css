@@ -1,0 +1,46 @@
+.appFooter {
+  padding: 18px 28px;
+  background: rgba(13, 33, 40, 0.94);
+  border-top: 1px solid rgba(7, 157, 217, 0.22);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  position: relative;
+  z-index: 15;
+}
+
+.appFooter__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.appFooter__links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.appFooter__links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.appFooter__links a:hover {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 560px) {
+  .appFooter__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .appFooter__links {
+    justify-content: flex-start;
+  }
+}
