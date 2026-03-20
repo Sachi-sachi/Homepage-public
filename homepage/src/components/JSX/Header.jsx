@@ -2,19 +2,16 @@ import "../CSS/Header.css";
 import logo from "../../assets/logo.png";
 import { useState, useRef, useEffect } from "react";
 
-export default function Header({ onMenuToggle }) {
-  // which dropdown is active: "settings" | "help" | "profile" | null
+export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
-
-  // if true, hover is disabled for other icons
   const [hoverLocked, setHoverLocked] = useState(false);
 
+  const whoRef = useRef(null);
   const settingsRef = useRef(null);
   const helpRef = useRef(null);
   const profileRef = useRef(null);
 
   /* ---------- helpers ---------- */
-
   const openOnHover = (name) => {
     if (!hoverLocked) {
       setActiveDropdown(name);
@@ -29,39 +26,38 @@ export default function Header({ onMenuToggle }) {
 
   const openOnClick = (name) => {
     setActiveDropdown(name);
-    setHoverLocked(true); // 🔒 lock hover for others
+    setHoverLocked(true);
   };
 
   const closeAll = () => {
     setActiveDropdown(null);
-    setHoverLocked(false); // 🔓 unlock hover
+    setHoverLocked(false);
   };
 
   /* ---------- outside click ---------- */
-
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleOutsideClick = (e) => {
       if (
+        whoRef.current &&
         settingsRef.current &&
         helpRef.current &&
         profileRef.current &&
-        !settingsRef.current.contains(event.target) &&
-        !helpRef.current.contains(event.target) &&
-        !profileRef.current.contains(event.target)
+        !whoRef.current.contains(e.target) &&
+        !settingsRef.current.contains(e.target) &&
+        !helpRef.current.contains(e.target) &&
+        !profileRef.current.contains(e.target)
       ) {
         closeAll();
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
-
-  /* ---------- render ---------- */
 
   return (
     <header className="appHeader">
-      {/* Brand */}
+      {/* ---------- Brand ---------- */}
       <div className="appHeader__brand">
         <div className="appHeader__logo">
           <img src={logo} alt="Software Factory logo" />
@@ -72,41 +68,43 @@ export default function Header({ onMenuToggle }) {
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="appHeader__actions">
-        {/* Who Are We */}
+      {/* ---------- Center | Who Are We ---------- */}
+      <div className="appHeader__center">
         <div
+          ref={whoRef}
           className="dropdown"
-          ref={settingsRef}
           onMouseEnter={() => openOnHover("who")}
           onMouseLeave={closeOnLeave}
         >
-          <button className="whoButton" onClick={() => openOnClick("who")}>
+          <button
+            className="appHeader__whoButton"
+            onClick={() => openOnClick("who")}
+          >
             Who Are We?
           </button>
 
           {activeDropdown === "who" && (
-            <div className="dropdown__menu">
-              <a className="dropdown__item" href="#">
-                About Us
-              </a>
-              <a className="dropdown__item" href="#">
+            <div className="dropdown__menu dropdown__menu--center">
+              <a href="#" className="dropdown__item">
                 ArchCraft
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 CodeCraft
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 ValidationCraft
               </a>
             </div>
           )}
         </div>
+      </div>
 
-        {/* SETTINGS */}
+      {/* ---------- Right Actions ---------- */}
+      <div className="appHeader__actions">
+        {/* Settings */}
         <div
-          className="dropdown"
           ref={settingsRef}
+          className="dropdown"
           onMouseEnter={() => openOnHover("settings")}
           onMouseLeave={closeOnLeave}
         >
@@ -119,23 +117,23 @@ export default function Header({ onMenuToggle }) {
 
           {activeDropdown === "settings" && (
             <div className="dropdown__menu">
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 Profile Settings
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 Preferences
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 Permissions
               </a>
             </div>
           )}
         </div>
 
-        {/* HELP */}
+        {/* Help */}
         <div
-          className="dropdown"
           ref={helpRef}
+          className="dropdown"
           onMouseEnter={() => openOnHover("help")}
           onMouseLeave={closeOnLeave}
         >
@@ -145,23 +143,23 @@ export default function Header({ onMenuToggle }) {
 
           {activeDropdown === "help" && (
             <div className="dropdown__menu">
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 Documentation
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 FAQs
               </a>
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 Contact Support
               </a>
             </div>
           )}
         </div>
 
-        {/* PROFILE */}
+        {/* Profile */}
         <div
-          className="dropdown"
           ref={profileRef}
+          className="dropdown"
           onMouseEnter={() => openOnHover("profile")}
           onMouseLeave={closeOnLeave}
         >
@@ -174,12 +172,12 @@ export default function Header({ onMenuToggle }) {
               <div className="profile-header">
                 <div className="profile-avatar">SC</div>
                 <div className="profile-info">
-                  <div className="profile-name">Sarah Connor</div>
-                  <div className="profile-email">sarah.connor@bmw.com</div>
+                  <span className="profile-name">Sarah Connor</span>
+                  <span className="profile-email">sarah.connor@bmw.com</span>
                 </div>
               </div>
 
-              <a className="dropdown__item" href="#">
+              <a href="#" className="dropdown__item">
                 View Account
               </a>
               <button className="dropdown__item dropdown__item--logout">
